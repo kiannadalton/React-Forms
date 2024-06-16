@@ -11,8 +11,10 @@ export default function SignUpForm({token, setToken}){
     const [error, setError] = useState(null);
 
     const handleSubmit = async (event) => {
-        event.preventDefault();
+      event.preventDefault();
         
+        // wrapping in if statement allows me to require character length
+      if (username.length >= 8 && password.length >= 8){
         try {
             const response = await fetch("https://fsa-jwt-practice.herokuapp.com/signup",{
             method: "POST",
@@ -32,7 +34,10 @@ export default function SignUpForm({token, setToken}){
         } catch (error) {
             setError(error.message);
         }
-    }
+    } else{
+        setError("Username and Password must BOTH be atleast 8 characters in length. Please try again.")
+
+    }}
 
 return(
     // need to have h2 and form within div to prevent error
