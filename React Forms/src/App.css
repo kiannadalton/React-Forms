@@ -1,7 +1,11 @@
 body {
-  background-color: black;
+  background-color: rgb(29, 30, 113);
   color: white;
   text-align: center;
+}
+
+h2 {
+  color: yellow;
 }
 
 input{
